@@ -33,7 +33,7 @@
             Console.WriteLine("Введите ваш город проживания");
             city_​of_residence = Console.ReadLine();
 
-            
+
             Console.WriteLine("/t----- АНКЕТА ПОЛЬЗОВАТЕЛЯ -----");
             Console.WriteLine($"Имя: {name}");
             Console.WriteLine($"Возраст: {age}");
@@ -41,5 +41,7 @@
             Console.WriteLine($"Пол: {gender}");
             Console.WriteLine($"Любимая буква: {favorite_letter_of_the_alphabet}");
             Console.WriteLine($"Город: {city_​of_residence}");
+
         }
+    }
 }
