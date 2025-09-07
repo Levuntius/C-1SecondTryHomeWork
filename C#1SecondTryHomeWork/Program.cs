@@ -9,7 +9,11 @@
             Console.WriteLine("Введите ваше имя");
             name = Console.ReadLine();
             Console.WriteLine(name);
-            
+
+            int age;
+            Console.WriteLine("Введите ваш возраст");
+            age = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(age);
 
         }
     }
