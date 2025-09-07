@@ -34,7 +34,7 @@
             city_​of_residence = Console.ReadLine();
 
 
-            Console.WriteLine("/t----- АНКЕТА ПОЛЬЗОВАТЕЛЯ -----");
+            Console.WriteLine("\t----- АНКЕТА ПОЛЬЗОВАТЕЛЯ -----");
             Console.WriteLine($"Имя: {name}");
             Console.WriteLine($"Возраст: {age}");
             Console.WriteLine($"Рост: {height} м");
