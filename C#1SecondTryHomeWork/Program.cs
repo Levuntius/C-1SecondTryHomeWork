@@ -4,7 +4,12 @@
     {
         static void Main(string[] args)
         {
-         
+
+            string name;
+            Console.WriteLine("Введите ваше имя");
+            name = Console.ReadLine();
+            Console.WriteLine(name);
+            
 
         }
     }
