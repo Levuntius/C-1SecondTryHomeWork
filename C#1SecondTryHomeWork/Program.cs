@@ -35,7 +35,7 @@
 
             Console.WriteLine("\t----- АНКЕТА ПОЛЬЗОВАТЕЛЯ -----");
             Console.WriteLine($"Имя: {name}");
-            Console.WriteLine($"Возраст: {age}");
+            Console.WriteLine($"Возраст: {age} лет");
             Console.WriteLine($"Рост: {height} м");
             Console.WriteLine($"Пол: {gender}");
             Console.WriteLine($"Любимая буква: {favorite_letter_of_the_alphabet}");
