@@ -6,31 +6,29 @@
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.InputEncoding = System.Text.Encoding.UTF8;
+           
             string name;
-            int age;
-            float height;
-            char gender;
-            char favorite_letter_of_the_alphabet;
-            string city_​of_residence;
-
             Console.WriteLine("Введите ваше имя");
             name = Console.ReadLine();
-            Console.WriteLine(name);
 
+            int age;
             Console.WriteLine("Введите ваш возраст");
-            age = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(age);
+            age = int.Parse(Console.ReadLine());
 
+            float height;
             Console.WriteLine("Введите ваш рост в метрах");
             height = float.Parse(Console.ReadLine());
-            Console.WriteLine(height);
 
+            char gender;
             Console.WriteLine("Введите ваш пол (М/Ж)");
-            gender = Convert.ToChar(Console.ReadLine());
+            gender = char.Parse(Console.ReadLine());
+
+            char favorite_letter_of_the_alphabet;
 
             Console.WriteLine("Введите вашу любимую букву алфавита");
-            favorite_letter_of_the_alphabet = Convert.ToChar(Console.ReadLine());
+            favorite_letter_of_the_alphabet = char.Parse(Console.ReadLine());
 
+            string city_​of_residence;
             Console.WriteLine("Введите ваш город проживания");
             city_​of_residence = Console.ReadLine();
 
