@@ -23,14 +23,14 @@
             Console.WriteLine("Введите ваш пол (М/Ж)");
             gender = char.Parse(Console.ReadLine());
 
-            char favorite_letter_of_the_alphabet;
+            char favoriteLetterOfTheAlphabet;
 
             Console.WriteLine("Введите вашу любимую букву алфавита");
-            favorite_letter_of_the_alphabet = char.Parse(Console.ReadLine());
+            favoriteLetterOfTheAlphabet = char.Parse(Console.ReadLine());
 
-            string city_​of_residence;
+            string cityOfResidence;
             Console.WriteLine("Введите ваш город проживания");
-            city_​of_residence = Console.ReadLine();
+            cityOfResidence = Console.ReadLine();
 
 
             Console.WriteLine("\t----- АНКЕТА ПОЛЬЗОВАТЕЛЯ -----");
@@ -38,8 +38,8 @@
             Console.WriteLine($"Возраст: {age} лет");
             Console.WriteLine($"Рост: {height} м");
             Console.WriteLine($"Пол: {gender}");
-            Console.WriteLine($"Любимая буква: {favorite_letter_of_the_alphabet}");
-            Console.WriteLine($"Город: {city_​of_residence}");
+            Console.WriteLine($"Любимая буква: {favoriteLetterOfTheAlphabet}");
+            Console.WriteLine($"Город: {cityOfResidence}");
 
         }
     }
