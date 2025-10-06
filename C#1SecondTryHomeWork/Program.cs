@@ -20,6 +20,11 @@
             Console.WriteLine("string=: a sequence of characters");
             Console.WriteLine("object=: any data type");
 
+            double a = (3 + 5 * (6 + 3) - 8 * 3 + 1) / (21 + 50 / (3 + 4 * (1 + 2)));
+            Console.WriteLine($"a={a}");
+
+            double b = ((0.25 - 0.12) * 0.81 + 0.132 - 2.7 / 3.1) / (3 / 7 + 2.97 * (8.05 - 8.1 * 6.07));
+            Console.WriteLine($"b={b}");
         }
     }
 }
