@@ -5,32 +5,32 @@
         static void Main(string[] args)
         {
             //5.a//
-            double Length_of_a_rectangle = 10.0;
-            double Width_of_a_rectangle = 5.0;
-            double Area_of_a_rectangle = Length_of_a_rectangle * Width_of_a_rectangle;
-            Console.WriteLine("Area of a rectangle: " + Area_of_a_rectangle);
+            double lengthOfARectangle = 10.0;
+            double widthOfARectangle = 5.0;
+            double areaOfARectangle = lengthOfARectangle * widthOfARectangle;
+            Console.WriteLine("Area of a rectangle: " + areaOfARectangle);
            
 
             //5.b//
-            double Radius_of_a_circle = 7.5;
-            double Area_of_a_circle = Math.PI * Math.Pow(Radius_of_a_circle, 2);
-            Console.WriteLine("Area of a circle: " + Area_of_a_circle);
+            double radiusOfACircle = 7.5;
+            double areaOfAircle = Math.PI * Math.Pow(radiusOfACircle, 2);
+            Console.WriteLine("Area of a circle: " + areaOfACircle);
             
 
             //5.c//
-            double Base_of_a_triangle = 8.0;
-            double Height_of_a_triangle = 6.0;
-            double Area_of_a_triangle = 0.5 * Base_of_a_triangle * Height_of_a_triangle;
-            Console.WriteLine("Area of a triangle: " + Area_of_a_triangle);
+            double baseOfATriangle = 8.0;
+            double heightOfATriangle = 6.0;
+            double areaOfATriangle = 0.5 * baseOfATriangle * heightOfATriangle;
+            Console.WriteLine("Area of a triangle: " + areaOfATriangle);
 
 
             //5.d//
-            double Side_a = 5.0;
-            double Side_b = 6.0;
-            double Side_c = 7.0;
-            double Semi_perimeter = (Side_a + Side_b + Side_c) / 2;
-            double Area_of_triangle_Heron = Math.Sqrt(Semi_perimeter * (Semi_perimeter - Side_a) * (Semi_perimeter - Side_b) * (Semi_perimeter - Side_c));
-            Console.WriteLine("Area of a triangle using Heron's formula: " + Area_of_triangle_Heron);
+            double sideA = 5.0;
+            double sideB = 6.0;
+            double sideC = 7.0;
+            double semiPerimeter = (sideA + sideB + sideC) / 2;
+            double areaOfTriangleHeron = Math.Sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) * (semiPerimeter - sideC));
+            Console.WriteLine("Area of a triangle using Heron's formula: " + areaOfTriangleHeron);
 
 
 
