@@ -16,13 +16,13 @@
 
             // Task a
           
-            double taskA = a + b - с * (3.0 * a * b + a * a) / (b * c);
+            double taskA = a + b - c * (3.0 * a * b + a * a) / (b * c) - Math.Pow(c + a * b / (double)c, 2);
 
             Console.WriteLine($"Task a answer: {taskA}");
            
             // Task B
             
-            double taskB = (Math.Pow(a * b + 7 * c, 3) - (a * a + b * b + c * c)) / b - a * c - a * (b + c);
+            double taskB = (Math.Pow(a * b + 7 * c, 3) - (a * a + b * b + c * c)) / (b - a * c - a * (b + c));
             Console.WriteLine($"Task b answer: {taskB}");
 
            /*write the integer a: 0
