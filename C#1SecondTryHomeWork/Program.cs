@@ -25,9 +25,9 @@ namespace C_1SecondTryHomeWork
             }
             else
             {
-                num1 = Random.Shared.Next(0, 10);
-                num2 = Random.Shared.Next(0, 10);
-                num3 = Random.Shared.Next(0, 10);
+                num1 = Random.Shared.Next(1, 10);
+                num2 = Random.Shared.Next(1, 10);
+                num3 = Random.Shared.Next(1, 10);
             }
 
             Console.WriteLine($"Ваша ставка {ante}$");
