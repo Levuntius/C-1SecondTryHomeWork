@@ -31,7 +31,7 @@
             }
             catch (FormatException)
             {
-                Console.WriteLine("Ошибка: Введено некорректное число.");
+                Console.WriteLine("Ошибка Введено некорректное число");
             }
 
         }   
