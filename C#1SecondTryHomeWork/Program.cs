@@ -6,33 +6,27 @@
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.InputEncoding = System.Text.Encoding.UTF8;
-            try
+            
+            Console.Write("Введите число a: ");
+            int a = int.Parse(Console.ReadLine());
+
+            Console.Write("Введите число b: ");
+            int b = int.Parse(Console.ReadLine());
+
+            int start = Math.Min(a, b);
+            int end = Math.Max(a, b);
+
+            int sum = 0;
+
+            for (int i = start; i <= end; i++)
             {
-                Console.Write("Введите число a: ");
-                int a = int.Parse(Console.ReadLine());
-
-                Console.Write("Введите число b: ");
-                int b = int.Parse(Console.ReadLine());
-
-                int start = Math.Min(a, b);
-                int end = Math.Max(a, b);
-
-                int sum = 0;
-
-                for (int i = start; i <= end; i++)
+                if (i % 2 != 0)
                 {
-                    if (i % 2 != 0)
-                    {
-                        sum += i * i;
-                    }
+                   sum += i * i;
                 }
-                Console.WriteLine($"Сумма квадратов нечётных чисел от {a} до {b} = {sum}");
+            }
+            Console.WriteLine($"Сумма квадратов нечётных чисел от {a} до {b} = {sum}");
 
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Ошибка Введено некорректное число");
-            }
 
         }   
      }
