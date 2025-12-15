@@ -17,6 +17,8 @@
                     Console.WriteLine("Ошибка ввода. Пожалуйста, введите целое число.");
                     continue;
                 }
+
+                break;
             }
 
             Console.Write("Введите число b: ");
@@ -27,6 +29,7 @@
                     Console.WriteLine("Ошибка ввода. Пожалуйста, введите целое число.");
                     continue;
                 }
+                break;
             }
 
             int start = Math.Min(a, b);
