@@ -9,9 +9,8 @@
             string password = "12345";
             int attempts = 5;
 
-            try
-            {
 
+            
                 while (attempts > 0)
                 {
                     Console.Write("Введите пароль: ");
@@ -20,7 +19,7 @@
                     if (input == password)
                     {
                         Console.WriteLine("Добро пожаловать");
-                        return; // завершаем программу
+                        return; 
                     }
                     else
                     {
@@ -37,12 +36,7 @@
                 }
 
 
-            }
-
-            catch (FormatException)
-            {
-                Console.WriteLine($"То что вы ввели не может быть паролем");
-            }
+            
 
         }
 
