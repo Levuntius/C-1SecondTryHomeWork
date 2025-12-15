@@ -31,14 +31,14 @@
                     positive = false;
                 }
 
-                if (fourDigitNum >= 1000 || fourDigitNum <= 9999 && fourDigitNum <= -1000 || fourDigitNum >= -9999)
+                if (fourDigitNum >= 1000 && fourDigitNum <= 9999 || fourDigitNum <= -1000 && fourDigitNum >= -9999)
                 {
 
                     if (positive)
                     {
                         for(int i = 1000; i != 0; i/= 10)
                         
-                            if (fourDigitNum / i % 10 % 2 == 0);
+                            if (fourDigitNum / i % 10 % 2 == 0)
                             {
                                numOfEvenDigits++;
                             }
@@ -48,7 +48,7 @@
                     {
                         for (int i = 1000; i != 0; i /= 10)
 
-                            if (-1 * fourDigitNum / i % 10 % 2 == 0);
+                            if (-1 * fourDigitNum / i % 10 % 2 == 0)
                             {
                                numOfEvenDigits++;
                             }
