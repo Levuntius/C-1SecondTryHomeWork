@@ -52,7 +52,7 @@
 
                 for (int i = 0; i < array.Length; i++)
                 {
-                    array[i] = rand.Next(0, 51); // от 0 до 50 включительно
+                    array[i] = rand.Next(0, 51);
                 }
 
                 Console.WriteLine("Исходный массив:");
