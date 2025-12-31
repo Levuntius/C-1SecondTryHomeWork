@@ -5,8 +5,9 @@
         static void Main(string[] args)
         {
             int task = 1
-            Coonsole.WriteLine("Enter task number (1-3)");
+            Console.WriteLine("Enter task number (1-3)");
             Console.ReadLine();
+
             if task == 1
             {
                 int[] array = new int[10];
