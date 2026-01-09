@@ -4,6 +4,9 @@
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.InputEncoding = System.Text.Encoding.UTF8;
+
             const int size = 10;
             int[] array = new int[size];
             Random rand = new Random();
