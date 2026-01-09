@@ -4,73 +4,36 @@
     {
         static void Main(string[] args)
         {
-            int task = 1
-            Console.WriteLine("Enter task number (1-3)");
-            Console.ReadLine();
+            const int size = 10;
+            int[] array = new int[size];
+            Random rand = new Random();
 
-            if task == 1
+            Console.WriteLine("Исходный массив:");
+            for (int i = 0; i < size; i++)
             {
-                int[] array = new int[10];
-                Random rand = new Random();
+                array[i] = rand.Next(0, 51);
+                Console.Write(array[i] + " ");
+            }
 
-                for (int i = 0; i < array.Length; i++)
+            // Сортировка пузырьком
+            for (int i = 0; i < size - 1; i++)
+            {
+                for (int j = 0; j < size - 1 - i; j++)
                 {
-                    array[i] = rand.Next(7, 15);
-                    if (array[i] > 10)
+                    if (array[j] < array[j + 1])
                     {
-                        array[i] -= 10;
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
                     }
-                    Console.Write(array[i] + " ");
                 }
             }
-            else if (task == 2)
+
+            // Вывод отсортированного массива
+            Console.WriteLine("\n\nОтсортированный массив (по убыванию):");
+            for (int i = 0; i < size; i++)
             {
-                int[] array1 = new int[10];
-                int[] array2 = new int[10];
-                int[] array3 = new int[10];
-                Random rand = new Random();
-
-                for (int i = 0; i < 10; i++)
-                {
-                    array1[i] = rand.Next(10, 31);
-                    array2[i] = rand.Next(10, 31);
-                    array3[i] = array1[i] + array2[i];
-                }
-
-                int sum = array3.Sum();
-                double average = array3.Average();
-                int max = array3.Max();
-                int min = array3.Min();
-
-                Console.WriteLine("Среднее: " + average);
-                Console.WriteLine("Максимум: " + max);
-                Console.WriteLine("Минимум: " + min);
-            }
-            else if (task == 3)
-            {
-                int[] array = new int[10];
-                Random rand = new Random();
-
-                for (int i = 0; i < array.Length; i++)
-                {
-                    array[i] = rand.Next(0, 51);
-                }
-
-                Console.WriteLine("Исходный массив:");
-                Console.WriteLine(string.Join(" ", array));
-
-                Array.Sort(array);
-                Array.Reverse(array);
-
-                Console.WriteLine("Отсортированный по убыванию:");
-                Console.WriteLine(string.Join(" ", array));
-            }
-            else
-            {
-                Console.WriteLine("Invalid task number");
-            }
-
-            
+                Console.Write(array[i] + " ");
             }
 
         }
