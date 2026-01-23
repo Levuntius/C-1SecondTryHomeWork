@@ -5,54 +5,55 @@
         static void Main(string[] args)
         {
             int[] arr = new int[20];
-            for (int i = 0; i < arr.Length; i++)
-            {
-                array[i] = Random.Shared.Next(51);
+              for (int i = 0; i < arr.Length; i++)
+              {
+                  arr[i] = Random.Shared.Next(51);
 
-            }
-            Console.WriteLine(string.Join(", ", arr));
+              }
 
-            bool swapped = true;
-            int start = 0;
-            int end = arr.Length - 1;
+              Console.WriteLine(string.Join(", ", arr));
 
-            while (swapped)
-            {
-                swapped = false;
+              bool swapped = true;
+              int start = 0;
+              int end = arr.Length - 1;
 
-                // Проход слева направо
-                for (int i = start; i < end; i++)
-                {
-                    if (arr[i] > arr[i + 1])
-                    {
-                        int temp = arr[i];
-                        arr[i] = arr[i + 1];
-                        arr[i + 1] = temp;
-                        swapped = true;
-                    }
-                }
+              while (swapped)
+              {
+                  swapped = false;
 
-                if (!swapped)
-                    break;
+                  // Проход слева направо
+                  for (int i = start; i < end; i++)
+                  {
+                      if (arr[i] > arr[i + 1])
+                      {
+                          int temp = arr[i];
+                          arr[i] = arr[i + 1];
+                          arr[i + 1] = temp;
+                          swapped = true;
+                      }
+                  }
 
-                swapped = false;
-                end--;
+                  if (!swapped)
+                      break;
 
-                // Проход справа налево
-                for (int i = end; i > start; i--)
-                {
-                    if (arr[i] < arr[i - 1])
-                    {
-                        int temp = arr[i];
-                        arr[i] = arr[i - 1];
-                        arr[i - 1] = temp;
-                        swapped = true;
-                    }
-                }
+                  swapped = false;
+                  end--;
 
-                start++;
-            }
-            Console.WriteLine(string.Join(", ", arr));
+                  // Проход справа налево
+                  for (int i = end; i > start; i--)
+                  {
+                      if (arr[i] < arr[i - 1])
+                      {
+                          int temp = arr[i];
+                          arr[i] = arr[i - 1];
+                          arr[i - 1] = temp;
+                          swapped = true;
+                      }
+                  }
+
+                  start++;
+              }
+              Console.WriteLine(string.Join(", ", arr));
 
 
 
