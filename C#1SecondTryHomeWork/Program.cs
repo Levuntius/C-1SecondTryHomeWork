@@ -10,6 +10,7 @@
                 array[i] = Random.Shared.Next(51);
 
             }
+            Console.WriteLine(string.Join(", ", arr));
 
             bool swapped = true;
             int start = 0;
@@ -51,5 +52,6 @@
 
                 start++;
             }
-    }
+            Console.WriteLine(string.Join(", ", arr));
+        }
 }
