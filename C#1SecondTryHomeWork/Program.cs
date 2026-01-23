@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            int[] arr = new int[20];
+
+              int[] arr = new int[20];
               for (int i = 0; i < arr.Length; i++)
               {
                   arr[i] = Random.Shared.Next(51);
@@ -55,6 +56,29 @@
               }
               Console.WriteLine(string.Join(", ", arr));
 
+            int[] arr = new int[20];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = Random.Shared.Next(51);
+
+            }
+
+            for (int i = 1; i < arr.Length; i++)
+              {
+                  int key = arr[i];   // элемент, который вставляем
+                  int j = i - 1;
+
+                  // Сдвигаем элементы вправо
+                  while (j >= 0 && arr[j] > key)
+                  {
+                      arr[j + 1] = arr[j];
+                      j--;
+                  }
+
+                  // Вставляем элемент
+                  arr[j + 1] = key;
+              }
+              Console.WriteLine(string.Join(", ", arr));
 
 
         }
