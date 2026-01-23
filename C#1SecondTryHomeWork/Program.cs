@@ -9,6 +9,7 @@ namespace C_1SecondTryHomeWork
             Console.OutputEncoding = Encoding.UTF8;
             Console.InputEncoding = Encoding.UTF8;
 
+            // Шейкерная сортировка
             /*int[] arr = new int[20];
             for (int i = 0; i < arr.Length; i++)
             {
@@ -60,8 +61,8 @@ namespace C_1SecondTryHomeWork
               }
             Console.WriteLine(string.Join(", ", arr));*/
 
-
-            int[] arr2 = new int[20];
+            // Сортировка вставками
+            /*int[] arr2 = new int[20];
             for (int i = 0; i < arr2.Length; i++)
             {
                 arr2[i] = Random.Shared.Next(51);
@@ -85,7 +86,7 @@ namespace C_1SecondTryHomeWork
                   // Вставляем элемент
                   arr2[j + 1] = key;
               }
-              Console.WriteLine(string.Join(", ", arr2));
+              Console.WriteLine(string.Join(", ", arr2));*/
 
 
         }
