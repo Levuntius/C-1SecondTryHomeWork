@@ -63,7 +63,7 @@
                 }
             }
 
-            Console.WriteLine("Максимальная сумма в строке" + (maxRow + 1));
+            Console.WriteLine("Максимальная сумма в строке; " + (maxRow + 1));
         }
     }
 }
