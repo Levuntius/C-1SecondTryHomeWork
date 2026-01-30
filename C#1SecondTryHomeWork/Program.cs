@@ -30,16 +30,16 @@
             }
 
             Console.WriteLine("Сумма 2 и 3 строка: " + sum);*/
-
-            Random rnd = new Random();
-            int rows = 4, cols = 5;
-            int[,] matrix = new int[rows, cols];
+            
+            // Task 2
+            int rows = 4, columns = 5;
+            int[,] matrix = new int[rows, columns];
 
             for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < cols; j++)
+                for (int j = 0; j < columns; j++)
                 {
-                    matrix[i, j] = rnd.Next(10, 101);
+                    matrix[i, j] = Random.Shared.Next(10, 101);
                     Console.Write(matrix[i, j] + "\t");
                 }
                 Console.WriteLine();
@@ -51,7 +51,7 @@
             for (int i = 0; i < rows; i++)
             {
                 int rowSum = 0;
-                for (int j = 0; j < cols; j++)
+                for (int j = 0; j < columns; j++)
                     rowSum += matrix[i, j];
 
                 Console.WriteLine($"Сумма строки {i + 1}: {rowSum}");
