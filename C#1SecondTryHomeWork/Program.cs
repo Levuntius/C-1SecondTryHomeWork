@@ -65,7 +65,7 @@
 
               Console.WriteLine("Максимальная сумма в строке: " + (maxRow + 1));*/
               // Task 3
-              int n = 5;
+            /*int n = 5;
               int[,] matrix = new int[n, n];
 
               for (int i = 0; i < n; i++)
@@ -90,7 +90,7 @@
               {
                   if (matrix[i, n - 1 - i] > 0)
                       Console.WriteLine(matrix[i, n - 1 - i]);
-              }
+              }*/
 
         }
     }
