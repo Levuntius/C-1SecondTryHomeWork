@@ -7,7 +7,8 @@
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.InputEncoding = System.Text.Encoding.UTF8;
 
-            int rows = 3, columns = 5;
+          // Task 1
+          /*int rows = 3, columns = 5;
             int[,] matrix = new int[rows, columns];
 
             
@@ -28,7 +29,41 @@
                 sum += matrix[2, j];
             }
 
-            Console.WriteLine("Сумма 2 и 3 строка: " + sum);
+            Console.WriteLine("Сумма 2 и 3 строка: " + sum);*/
+
+            Random rnd = new Random();
+            int rows = 4, cols = 5;
+            int[,] matrix = new int[rows, cols];
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    matrix[i, j] = rnd.Next(10, 101);
+                    Console.Write(matrix[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            int maxSum = int.MinValue;
+            int maxRow = 0;
+
+            for (int i = 0; i < rows; i++)
+            {
+                int rowSum = 0;
+                for (int j = 0; j < cols; j++)
+                    rowSum += matrix[i, j];
+
+                Console.WriteLine($"Сумма строки {i + 1}: {rowSum}");
+
+                if (rowSum > maxSum)
+                {
+                    maxSum = rowSum;
+                    maxRow = i;
+                }
+            }
+
+            Console.WriteLine("Максимальная сумма в строке № " + (maxRow + 1));
         }
     }
 }
