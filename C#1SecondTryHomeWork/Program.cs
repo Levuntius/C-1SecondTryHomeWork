@@ -4,6 +4,8 @@
     {
         static void Main()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.InputEncoding = System.Text.Encoding.UTF8;
             Random rnd = new Random();
             int rows = 3, cols = 5;
             int[,] matrix = new int[rows, cols];
