@@ -9,7 +9,7 @@ namespace C_1SecondTryHomeWork
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.InputEncoding = System.Text.Encoding.UTF8;
 
-            double balance = 26122019;
+            double balance = 2612;
             int number;
 
             ShowWelcome();
@@ -29,15 +29,21 @@ namespace C_1SecondTryHomeWork
                     Console.WriteLine("Ошибка! Введите число от 1 до 4.");
                 }
 
-            }
-
-
-
-
-
-
-
-
+                switch (number)
+                {
+                    case 1:
+                        checkBalance(balance);
+                        break;
+                    case 2:
+                        topUpYourBalance();
+                        break;
+                    case 3:
+                        withdrawalOfMoney();
+                        break;
+                    case 4:
+                        viewTransactionHistory();
+                        break;
+                }
 
             static void ShowWelcome()
             {
@@ -48,6 +54,10 @@ namespace C_1SecondTryHomeWork
                 Console.WriteLine("4. Посмотреть историю операций");
             }
 
+            static void checkBalance(int: balance) 
+            {
+                Console.WriteLine("Ваш баланс: " + balance);
+            }
 
         }
     }
