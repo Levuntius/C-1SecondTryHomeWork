@@ -67,7 +67,7 @@ namespace C_1SecondTryHomeWork
             Console.WriteLine("Ваш баланс: " + balance);
         }
 
-        static double TopUpYourBalance(double balance, ref string history)
+        static double TopUpYourBalance(double balance, string history)
         {
             Console.Write("Введите сумму для пополнения: ");
             string input = Console.ReadLine();
@@ -89,7 +89,7 @@ namespace C_1SecondTryHomeWork
             return balance;
         }
 
-        static double WithdrawMoneyFromTheBalance(double balance, ref string history)
+        static double WithdrawMoneyFromTheBalance(double balance, string history)
         {
             Console.Write("Введите сумму для снятия: ");
             string input = Console.ReadLine();
