@@ -13,7 +13,9 @@ namespace C_1SecondTryHomeWork
 
             double balance = 2612;
             int choice;
-            string history = ""; // строка для хранения истории
+            string history = "";
+
+            Console.WriteLine(balance);
 
             while (true)
             {
