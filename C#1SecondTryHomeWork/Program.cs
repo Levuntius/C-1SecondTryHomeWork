@@ -15,7 +15,7 @@ namespace C_1SecondTryHomeWork
             int choice;
             string history = "";
 
-            Console.WriteLine(balance);
+            Console.WriteLine($"Ваш баланс: {balance}");
 
             while (true)
             {
