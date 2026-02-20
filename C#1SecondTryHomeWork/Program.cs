@@ -37,11 +37,11 @@ namespace C_1SecondTryHomeWork
                         break;
 
                     case 2:
-                        balance = TopUpYourBalance(balance, ref history);
+                        balance = TopUpYourBalance(balance, history);
                         break;
 
                     case 3:
-                        balance = WithdrawMoneyFromTheBalance(balance, ref history);
+                        balance = WithdrawMoneyFromTheBalance(balance, history);
                         break;
 
                     case 4:
