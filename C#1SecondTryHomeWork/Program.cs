@@ -27,8 +27,6 @@ namespace C_1SecondTryHomeWork
                 if (!int.TryParse(input, out choice) || choice < 1 || choice > 4)
                 {
                     Console.WriteLine("Ошибка! Введите число от 1 до 4.");
-                    Console.ReadKey();
-                    Console.Clear();
                     continue;
                 }
 
@@ -56,7 +54,7 @@ namespace C_1SecondTryHomeWork
 
         static void ShowWelcome()
         {
-            Console.WriteLine("Здравствуйте! Выберите операцию:");
+            Console.WriteLine("Здравствуйте! Укажыте цыфру для выбора операции:");
             Console.WriteLine("1. Проверить баланс");
             Console.WriteLine("2. Пополнить счёт");
             Console.WriteLine("3. Снять деньги");
