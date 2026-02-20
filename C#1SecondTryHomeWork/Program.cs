@@ -1,5 +1,7 @@
 ﻿using static System.Runtime.InteropServices.JavaScript.JSType;
 
+
+
 namespace C_1SecondTryHomeWork
 {
     internal class Program
@@ -11,7 +13,7 @@ namespace C_1SecondTryHomeWork
 
             double balance = 2612;
             int choice;
-            List<string> history = new List<string>();
+            string history = ""; // строка для хранения истории
 
             while (true)
             {
@@ -35,11 +37,11 @@ namespace C_1SecondTryHomeWork
                         break;
 
                     case 2:
-                        balance = TopUpYourBalance(balance, history);
+                        balance = TopUpYourBalance(balance, ref history);
                         break;
 
                     case 3:
-                        balance = WithdrawMoneyFromTheBalance(balance, history);
+                        balance = WithdrawMoneyFromTheBalance(balance, ref history);
                         break;
 
                     case 4:
@@ -47,9 +49,6 @@ namespace C_1SecondTryHomeWork
                         break;
                 }
 
-                Console.WriteLine("\nНажмите любую клавишу...");
-                Console.ReadKey();
-                Console.Clear();
             }
         }
 
@@ -68,7 +67,7 @@ namespace C_1SecondTryHomeWork
             Console.WriteLine("Ваш баланс: " + balance);
         }
 
-        static double TopUpYourBalance(double balance, List<string> history)
+        static double TopUpYourBalance(double balance, ref string history)
         {
             Console.Write("Введите сумму для пополнения: ");
             string input = Console.ReadLine();
@@ -77,8 +76,8 @@ namespace C_1SecondTryHomeWork
             {
                 balance += amount;
 
-                string operation = $"{DateTime.Now} | Пополнение +{amount} | Баланс: {balance}";
-                history.Add(operation);
+                history += "Пополнение +" + amount +
+                           " | Баланс: " + balance + "\n";
 
                 Console.WriteLine("Баланс успешно пополнен. Текущий баланс: " + balance);
             }
@@ -90,7 +89,7 @@ namespace C_1SecondTryHomeWork
             return balance;
         }
 
-        static double WithdrawMoneyFromTheBalance(double balance, List<string> history)
+        static double WithdrawMoneyFromTheBalance(double balance, ref string history)
         {
             Console.Write("Введите сумму для снятия: ");
             string input = Console.ReadLine();
@@ -101,8 +100,8 @@ namespace C_1SecondTryHomeWork
                 {
                     balance -= amount;
 
-                    string operation = $"{DateTime.Now} | Снятие -{amount} | Баланс: {balance}";
-                    history.Add(operation);
+                    history += "Снятие -" + amount +
+                               " | Баланс: " + balance + "\n";
 
                     Console.WriteLine("Снятие успешно. Текущий баланс: " + balance);
                 }
@@ -119,20 +118,16 @@ namespace C_1SecondTryHomeWork
             return balance;
         }
 
-        static void ShowHistory(List<string> history)
+        static void ShowHistory(string history)
         {
-            if (history.Count == 0)
+            if (string.IsNullOrEmpty(history))
             {
                 Console.WriteLine("История операций пуста.");
-                return;
             }
-
-            Console.WriteLine("История операций:");
-            Console.WriteLine();
-
-            foreach (string item in history)
+            else
             {
-                Console.WriteLine(item);
+                Console.WriteLine("История операций:");
+                Console.WriteLine(history);
             }
         }
     }
