@@ -54,6 +54,7 @@ namespace C_1SecondTryHomeWork
 
         static void ShowWelcome()
         {
+            Console.WriteLine();
             Console.WriteLine("Здравствуйте! Укажыте цыфру для выбора операции:");
             Console.WriteLine("1. Проверить баланс");
             Console.WriteLine("2. Пополнить счёт");
