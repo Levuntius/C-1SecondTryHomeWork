@@ -2,134 +2,133 @@
 
 
 
+using System;
+using System.Text;
+
 namespace C_1SecondTryHomeWork
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.InputEncoding = System.Text.Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.UTF8;
 
             double balance = 2612;
             int choice;
             string history = "";
 
-            Console.WriteLine($"Ваш баланс: {balance}");
-
             while (true)
             {
-                ShowWelcome();
-
-                Console.Write("Введите число (1-4): ");
-                string input = Console.ReadLine();
-
-                if (!int.TryParse(input, out choice) || choice < 1 || choice > 4)
-                {
-                    Console.WriteLine("Ошибка! Введите число от 1 до 4.");
-                    continue;
-                }
+                ShowMenu();
+                choice = GetMenuChoice();
 
                 switch (choice)
                 {
                     case 1:
-                        CheckBalance(balance);
+                        ShowBalance(balance);
                         break;
 
                     case 2:
-                        balance = TopUpYourBalance(balance, history);
+                        double topUpAmount = GetAmount("пополнения");
+                        balance = AddMoney(balance, topUpAmount, history);
                         break;
 
                     case 3:
-                        balance = WithdrawMoneyFromTheBalance(balance, history);
+                        double withdrawAmount = GetAmount("снятия");
+                        balance = WithdrawMoney(balance, withdrawAmount, history);
                         break;
 
                     case 4:
                         ShowHistory(history);
                         break;
                 }
-
             }
         }
 
-        static void ShowWelcome()
+        // Показывает меню
+        static void ShowMenu()
         {
-            Console.WriteLine();
-            Console.WriteLine("Здравствуйте! Укажыте цыфру для выбора операции:");
+            Console.WriteLine("\nВыберите операцию:");
             Console.WriteLine("1. Проверить баланс");
             Console.WriteLine("2. Пополнить счёт");
             Console.WriteLine("3. Снять деньги");
-            Console.WriteLine("4. Посмотреть историю операций");
-            Console.WriteLine();
+            Console.WriteLine("4. История операций");
         }
 
-        static void CheckBalance(double balance)
+        // Получает корректный выбор пользователя
+        static int GetMenuChoice()
         {
-            Console.WriteLine("Ваш баланс: " + balance);
+            Console.Write("Введите число (1-4): ");
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out int choice) && choice >= 1 && choice <= 4)
+                return choice;
+
+            Console.WriteLine("Ошибка! Введите число от 1 до 4.");
+            return 0;
         }
 
-        static double TopUpYourBalance(double balance, string history)
+        // Показывает баланс
+        static void ShowBalance(double balance)
         {
-            Console.Write("Введите сумму для пополнения: ");
+            Console.WriteLine($"Ваш баланс: {balance}");
+        }
+
+        // Получает сумму
+        static double GetAmount(string operationName)
+        {
+            Console.Write($"Введите сумму для {operationName}: ");
             string input = Console.ReadLine();
 
             if (double.TryParse(input, out double amount) && amount > 0)
-            {
-                balance += amount;
+                return amount;
 
-                history += "Пополнение +" + amount +
-                           " | Баланс: " + balance + "\n";
-
-                Console.WriteLine("Баланс успешно пополнен. Текущий баланс: " + balance);
-            }
-            else
-            {
-                Console.WriteLine("Ошибка! Введите положительное число.");
-            }
-
-            return balance;
+            Console.WriteLine("Ошибка! Введите положительное число.");
+            return 0;
         }
 
-        static double WithdrawMoneyFromTheBalance(double balance, string history)
+        // Пополнение
+        static double AddMoney(double balance, double amount, string history)
         {
-            Console.Write("Введите сумму для снятия: ");
-            string input = Console.ReadLine();
+            if (amount <= 0) return balance;
 
-            if (double.TryParse(input, out double amount) && amount > 0)
-            {
-                if (amount <= balance)
-                {
-                    balance -= amount;
+            balance += amount;
+            history += $"Пополнение: +{amount} | Баланс: {balance}\n";
 
-                    history += "Снятие -" + amount +
-                               " | Баланс: " + balance + "\n";
-
-                    Console.WriteLine("Снятие успешно. Текущий баланс: " + balance);
-                }
-                else
-                {
-                    Console.WriteLine("Ошибка! Недостаточно средств.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Ошибка! Введите положительное число.");
-            }
-
+            Console.WriteLine($"Баланс успешно пополнен: {balance}");
             return balance;
         }
 
+        // Снятие
+        static double WithdrawMoney(double balance, double amount, string history)
+        {
+            if (amount <= 0) return balance;
+
+            if (amount > balance)
+            {
+                Console.WriteLine("Ошибка! Недостаточно средств.");
+                return balance;
+            }
+
+            balance -= amount;
+            history += $"Снятие: -{amount} | Баланс: {balance}\n";
+
+            Console.WriteLine($"Снятие выполнено: {balance}");
+            return balance;
+        }
+
+        // История
         static void ShowHistory(string history)
         {
             if (string.IsNullOrEmpty(history))
             {
                 Console.WriteLine("История операций пуста.");
+                return;
             }
-            else
-            {
-                Console.WriteLine("История операций:");
-                Console.WriteLine(history);
-            }
+
+            Console.WriteLine("История операций:");
+            Console.WriteLine(history);
         }
     }
 }
