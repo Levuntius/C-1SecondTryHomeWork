@@ -97,6 +97,7 @@ namespace C_1SecondTryHomeWork
             {
                 Console.WriteLine("Это не пара");
             }
+            Console.ReadKey();
         }
     }
 }
