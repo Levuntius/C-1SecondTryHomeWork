@@ -8,7 +8,7 @@
             Console.InputEncoding = Encoding.UTF8;
             // КАРТЫ
             (char letter, int position)[] cards =
-        {
+            {
             ('A', 0), ('A', 1),
             ('B', 2), ('B', 3),
             ('C', 4), ('C', 5),
@@ -17,7 +17,7 @@
             ('F', 10), ('F', 11),
             ('G', 12), ('G', 13),
             ('H', 14), ('H', 15)
-        };
+            }
 
             Random random = new Random();
 
