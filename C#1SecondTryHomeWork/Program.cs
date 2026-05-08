@@ -1,4 +1,5 @@
-﻿namespace C_1SecondTryHomeWork
+﻿using System.Text;
+namespace C_1SecondTryHomeWork
 {
     internal class Program
     {
@@ -17,7 +18,7 @@
             ('F', 10), ('F', 11),
             ('G', 12), ('G', 13),
             ('H', 14), ('H', 15)
-            }
+            };
 
             Random random = new Random();
 
