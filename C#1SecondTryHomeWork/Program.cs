@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace C_1SecondTryHomeWork
+namespace MemoryGame2D
 {
     internal class Program
     {
@@ -10,99 +10,177 @@ namespace C_1SecondTryHomeWork
             Console.OutputEncoding = Encoding.UTF8;
             Console.InputEncoding = Encoding.UTF8;
 
-            (char letter, int position)[] cards =
+            int size = 5;
+            char[,] field = new char[size, size];
+            bool[,] opened = new bool[size, size];
+
+            // 12 пар + 1 лишняя карта
+            char[] cards =
             {
-                ('A', 0), ('A', 1),
-                ('B', 2), ('B', 3),
-                ('C', 4), ('C', 5),
-                ('D', 6), ('D', 7),
-                ('E', 8), ('E', 9),
-                ('F', 10), ('F', 11),
-                ('G', 12), ('G', 13),
-                ('H', 14), ('H', 15)
+                'A','A','B','B','C','C','D','D','E','E','F','F',
+                'G','G','H','H','I','I','J','J','K','K','L','L',
+                '*' // лишняя карта
             };
 
-            Random random = new Random();
+            Shuffle(cards);
 
-            for (int i = 0; i < cards.Length * 4; i++)
-            {
-                int index1 = random.Next(0, cards.Length);
-                int index2 = random.Next(0, cards.Length);
+            // Заполняем поле
+            int index = 0;
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                    field[i, j] = cards[index++];
 
-                var temp = cards[index1];
-                cards[index1] = cards[index2];
-                cards[index2] = temp;
-            }
+            int pairsFound = 0;
+            int totalPairs = (size * size - 1) / 2; // 25 клеток → 12 пар
 
             while (true)
             {
-                int firstIndex;
+                Console.Clear();
+                PrintField(field, opened);
 
-                while (true)
+                Console.WriteLine($"Найдено пар: {pairsFound}/{totalPairs}");
+                Console.Write("Введите координаты первой карты (x y) или 0 для выхода: ");
+
+                if (!ReadCoords(out int x1, out int y1, size))
+                    continue;
+
+                if (x1 == -1) return;
+
+                if (opened[x1, y1])
                 {
-                    Console.Write("Первая карта 1-16 или 0 для выхода: ");
-                    string input = Console.ReadLine();
-
-                    if (int.TryParse(input, out firstIndex))
-                    {
-                        if (firstIndex == 0)
-                            return;
-
-                        if (firstIndex >= 1 && firstIndex <= 16)
-                            break;
-                    }
-
-                    Console.WriteLine("Ошыбка! Введите число 1-16");
+                    Console.WriteLine("Эта карта уже открыта");
+                    Console.ReadLine();
+                    continue;
                 }
 
-                firstIndex--;
+                opened[x1, y1] = true;
+                Console.Clear();
+                PrintField(field, opened);
 
-                Console.WriteLine($"Первая карта: {cards[firstIndex].letter}");
+                Console.Write("Введите координаты второй карты (x y): ");
 
-                int secondIndex;
-
-                while (true)
+                if (!ReadCoords(out int x2, out int y2, size))
                 {
-                    Console.Write("Вторая карта 1-16: ");
-                    string input = Console.ReadLine();
-
-                    if (int.TryParse(input, out secondIndex))
-                    {
-                        if (secondIndex >= 1 && secondIndex <= 16)
-                        {
-                            secondIndex--;
-
-                            if (secondIndex == firstIndex)
-                            {
-                                Console.WriteLine("Нельзя выбрать ту же карту");
-                                continue;
-                            }
-
-                            break;
-                        }
-                    }
-
-                    Console.WriteLine("Ошыбка! Введите число 1-16");
+                    opened[x1, y1] = false;
+                    continue;
                 }
 
-                Console.WriteLine($"Вторая карта: {cards[secondIndex].letter}");
-
-                if (cards[firstIndex].letter == cards[secondIndex].letter)
+                if (x1 == x2 && y1 == y2)
                 {
-                    Console.WriteLine("Пара найдена");
+                    Console.WriteLine("Нельзя выбрать ту же карту");
+                    opened[x1, y1] = false;
+                    Console.ReadLine();
+                    continue;
+                }
+
+                if (opened[x2, y2])
+                {
+                    Console.WriteLine("Эта карта уже открыта");
+                    opened[x1, y1] = false;
+                    Console.ReadLine();
+                    continue;
+                }
+
+                opened[x2, y2] = true;
+
+                Console.Clear();
+                PrintField(field, opened);
+
+                if (field[x1, y1] == field[x2, y2])
+                {
+                    Console.WriteLine("Пара найдена!");
+                    pairsFound++;
+
+                    if (pairsFound == totalPairs)
+                    {
+                        Console.WriteLine("Поздравляем! Вы нашли все пары!");
+                        return;
+                    }
                 }
                 else
                 {
                     Console.WriteLine("Это не пара");
+                    opened[x1, y1] = false;
+                    opened[x2, y2] = false;
                 }
 
-                Console.WriteLine();
-                Console.WriteLine("Нажмите Enter для следующего хода");
+                Console.WriteLine("Нажмите Enter");
                 Console.ReadLine();
-                Console.Clear();
             }
+        }
+
+        // Перемешивание массива
+        static void Shuffle(char[] arr)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < arr.Length * 4; i++)
+            {
+                int a = rnd.Next(arr.Length);
+                int b = rnd.Next(arr.Length);
+                (arr[a], arr[b]) = (arr[b], arr[a]);
+            }
+        }
+
+        // Печать поля
+        static void PrintField(char[,] field, bool[,] opened)
+        {
+            int size = field.GetLength(0);
+
+            Console.WriteLine("   0 1 2 3 4");
+            Console.WriteLine("  -----------");
+
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write(i + " | ");
+                for (int j = 0; j < size; j++)
+                {
+                    Console.Write(opened[i, j] ? field[i, j] + " " : "? ");
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
+        }
+
+        // Чтение координат с Trim, Split, RemoveEmptyEntries
+        static bool ReadCoords(out int x, out int y, int size)
+        {
+            x = y = -1;
+
+            string input = Console.ReadLine();
+
+            input = input.Trim(); // удаляем пробелы в начале и конце
+
+            if (input == "0")
+            {
+                x = -1;
+                return false;
+            }
+
+            string[] parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            if (parts.Length != 2)
+            {
+                Console.WriteLine("Ошибка! Введите два числа через пробел");
+                return false;
+            }
+
+            if (!int.TryParse(parts[0], out x) || !int.TryParse(parts[1], out y))
+            {
+                Console.WriteLine("Ошибка! Введите числа");
+                return false;
+            }
+
+            if (x < 0 || x >= size || y < 0 || y >= size)
+            {
+                Console.WriteLine("Ошибка! Координаты вне поля");
+                return false;
+            }
+
+            return true;
         }
     }
 }
+
 
 
