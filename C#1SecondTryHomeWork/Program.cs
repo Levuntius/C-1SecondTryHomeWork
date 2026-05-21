@@ -33,7 +33,7 @@ namespace MemoryGame2D
                     field[i, j] = cards[index++];
 
             int pairsFound = 0;
-            int totalPairs = (size * size) / 2; // 36 / 2 = 18 пар
+            int totalPairs = (size * size) / 2;
 
             while (true)
             {
@@ -93,12 +93,12 @@ namespace MemoryGame2D
 
                 if (field[x1, y1] == field[x2, y2])
                 {
-                    Console.WriteLine("Пара найдена!");
+                    Console.WriteLine("Пара найдена");
                     pairsFound++;
 
                     if (pairsFound == totalPairs)
                     {
-                        Console.WriteLine("Поздравляем! Вы нашли все пары!");
+                        Console.WriteLine("Вы нашли все пары!");
                         return;
                     }
                 }
@@ -169,19 +169,19 @@ namespace MemoryGame2D
 
             if (parts.Length != 2)
             {
-                Console.WriteLine("Ошибка! Введите две цифры через пробел");
+                Console.WriteLine("Ошибка Введите две цифры через пробел");
                 return false;
             }
 
             if (!int.TryParse(parts[0], out x) || !int.TryParse(parts[1], out y))
             {
-                Console.WriteLine("Ошибка! Нужно вводить только цифры");
+                Console.WriteLine("Ошибка Нужно вводить только цифры");
                 return false;
             }
 
             if (x < 0 || x >= size || y < 0 || y >= size)
             {
-                Console.WriteLine("Ошибка! Введите цифры от 0 до 5");
+                Console.WriteLine("Ошибка Введите цифры от 0 до 5");
                 return false;
             }
 
