@@ -157,11 +157,16 @@ namespace MemoryGame2D
         {
             while (true)
             {
-                Console.Write("Введите координаты вот так (x_y) или 0 для выхода");
-                string input = Console.ReadLine();
+                Console.Write("Введите координаты вот так (x_y) или нажмите Escape для выхода: ");
 
-                if (input.Trim() == "0")
-                    return (-1, -1);
+                if (Console.KeyAvailable)
+                {
+                    var key = Console.ReadKey(true).Key;
+                    if (key == ConsoleKey.Escape)
+                        return (-1, -1);
+                }
+
+                string input = Console.ReadLine();
 
                 string pattern = $@"^\s*([0-{width - 1}])[ _-]([0-{height - 1}])\s*$";
                 var m = Regex.Match(input, pattern);
@@ -181,3 +186,4 @@ namespace MemoryGame2D
         }
     }
 }
+
