@@ -94,7 +94,7 @@ namespace C_1SecondTryHomeWork
         {
             while (true)
             {
-                Console.Write("Введите координаты (x y): ");
+                Console.Write("Введите координаты 0-2(y x): ");
 
                 string input = Console.ReadLine();
 
@@ -102,7 +102,7 @@ namespace C_1SecondTryHomeWork
 
                 if (parts.Length != 2)
                 {
-                    Console.WriteLine("Введите две координаты!");
+                    Console.WriteLine("Введите две координаты");
                     continue;
                 }
 
@@ -111,13 +111,13 @@ namespace C_1SecondTryHomeWork
 
                 if (!okX || !okY)
                 {
-                    Console.WriteLine("Введите числа!");
+                    Console.WriteLine("Введите числа");
                     continue;
                 }
 
                 if (x < 0 || x > 2 || y < 0 || y > 2)
                 {
-                    Console.WriteLine("Допустимы только числа от 0 до 2!");
+                    Console.WriteLine("Допустимы только числа от 0 до 2");
                     continue;
                 }
 
