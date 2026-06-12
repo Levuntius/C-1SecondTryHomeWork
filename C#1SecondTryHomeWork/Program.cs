@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace C_1SecondTryHomeWork
 {
@@ -6,6 +7,9 @@ namespace C_1SecondTryHomeWork
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8; 
+            Console.InputEncoding = Encoding.UTF8;
+
             int[,] field = new int[3, 3];
 
             int currentPlayer = 1; // 1 = X, 2 = O
