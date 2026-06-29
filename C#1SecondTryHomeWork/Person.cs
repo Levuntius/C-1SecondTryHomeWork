@@ -9,26 +9,26 @@
 
         public string FirstName
         {
-            get { return _firstName; }
-            set { _firstName = value; }
+            get {return _firstName;}
+            set {_firstName = value;}
         }
 
         public string LastName
         {
-            get { return _lastName; }
-            set { _lastName = value; }
+            get {return _lastName;}
+            set {_lastName = value;}
         }
 
         public double Height
         {
-            get { return _height; }
-            set { _height = value; }
+            get {return _height;}
+            set {_height = value;}
         }
 
         public int Age
         {
-            get { return _age; }
-            set { _age = value; }
+            get {return _age;}
+            set {_age = value;}
         }
 
         public Person(string firstName, string lastName, double height, int age)

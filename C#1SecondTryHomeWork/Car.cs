@@ -17,21 +17,21 @@
 
         public string Make
         {
-            get { return _make; }
-            set { _make = value; }
+            get {return _make;}
+            set {_make = value;}
         }
 
         public string Model
         {
-            get { return _model; }
-            set { _model = value; }
+            get {return _model;}
+            set {_model = value;}
         }
 
 
         public Color Color
         {
-            get { return _color; }
-            set { _color = value; }
+            get {return _color;}
+            set {_color = value;}
         }
 
         public Car(string make, string model, Color color)
