@@ -26,7 +26,7 @@
             {
                 if (value > 300)
                 {
-                    Console.WriteLine("Рост должен быть меньше 300 сантиметров!");
+                    Console.WriteLine("Рост должен быть меньше 300 сантиметров");
                     return;
                 }
 
@@ -42,7 +42,7 @@
             {
                 if (value > 120)
                 {
-                    Console.WriteLine("Возраст должен быть меньше 120!");
+                    Console.WriteLine("Возраст должен быть меньше 120");
                     return;
                 }
 
