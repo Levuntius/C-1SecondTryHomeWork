@@ -22,13 +22,32 @@
         public double Height
         {
             get {return _height;}
-            set {_height = value;}
+            set
+            {
+                if (value > 300)
+                {
+                    Console.WriteLine("Рост должен быть меньше 300 сантиметров!");
+                    return;
+                }
+
+                _height = value;
+            }
         }
+
 
         public int Age
         {
             get {return _age;}
-            set {_age = value;}
+            set
+            {
+                if (value > 120)
+                {
+                    Console.WriteLine("Возраст должен быть меньше 120!");
+                    return;
+                }
+
+                _age = value;
+            }
         }
 
         public Person(string firstName, string lastName, double height, int age)
