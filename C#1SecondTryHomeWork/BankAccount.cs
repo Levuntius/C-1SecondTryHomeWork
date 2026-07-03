@@ -47,8 +47,8 @@ namespace C_1SecondTryHomeWork
 
         public BankAccount()
         {
-            _accountNumber = "0000000000";
-            _ownerName = "UNKNOWN";
+            _accountNumber = "7271562385";
+            _ownerName = "Leo";
             _balance = 0;
         }
 
