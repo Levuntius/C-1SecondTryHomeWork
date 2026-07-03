@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace C_1SecondTryHomeWork
-
 {
     class BankAccount
     {
@@ -14,8 +14,8 @@ namespace C_1SecondTryHomeWork
             get { return _accountNumber; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Номер счёта не может быть пустым.");
+                if (!Regex.IsMatch(value, @"^\d{10,15}$"))
+                    throw new ArgumentException("Номер счёта должен содержать от 10 до 15 цифр.");
 
                 _accountNumber = value;
             }
@@ -47,12 +47,11 @@ namespace C_1SecondTryHomeWork
 
         public BankAccount()
         {
-            _accountNumber = "UNKNOWN";
+            _accountNumber = "0000000000";
             _ownerName = "UNKNOWN";
             _balance = 0;
         }
 
-        // Конструктор
         public BankAccount(string accountNumber, string ownerName, decimal balance)
         {
             AccountNumber = accountNumber;
@@ -60,7 +59,6 @@ namespace C_1SecondTryHomeWork
             Balance = balance;
         }
 
-        // Пополнение счёта
         public void Deposit(decimal amount)
         {
             if (amount <= 0)
@@ -69,7 +67,6 @@ namespace C_1SecondTryHomeWork
             Balance += amount;
         }
 
-        // Снятие денег
         public bool Withdraw(decimal amount, out string errorMessage)
         {
             if (amount <= 0)
@@ -80,7 +77,7 @@ namespace C_1SecondTryHomeWork
 
             if (amount > Balance)
             {
-                errorMessage = "Недостаточно средств на счёте.";
+                errorMessage = "Недостаточно средств.";
                 return false;
             }
 
@@ -89,12 +86,10 @@ namespace C_1SecondTryHomeWork
             return true;
         }
 
-        // Информация о счёте
-        public string GetInfo()
+        // Возвращаем только данные — без форматирования
+        public (string accountNumber, string ownerName, decimal balance) GetInfo()
         {
-            return $"Счёт: {AccountNumber}\n" +
-                   $"Владелец: {OwnerName}\n" +
-                   $"Баланс: {Balance} руб.";
+            return (_accountNumber, _ownerName, _balance);
         }
     }
 }
