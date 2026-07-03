@@ -8,7 +8,13 @@ namespace C_1SecondTryHomeWork
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            BankAccount acc = new BankAccount("123456789012", "Лев Гладышев", 5000);
+            BankAccount account = new BankAccount("123456789012", "Лев Гладышев", 5000);
+            var info = account.GetInfo();
+            Console.WriteLine("Информация о счёте:");
+            Console.WriteLine($"Номер: {info.accountNumber}");
+            Console.WriteLine($"Владелец: {info.ownerName}");
+            Console.WriteLine($"Баланс: {info.balance} руб.");
+            Console.WriteLine();
 
             while (true)
             {
@@ -29,10 +35,10 @@ namespace C_1SecondTryHomeWork
                         {
                             try
                             {
-                                decimal oldBalance = acc.Balance;
-                                acc.Deposit(depAmount);
+                                decimal oldBalance = account.Balance;
+                                account.Deposit(depAmount);
                                 Console.WriteLine($"Баланс был: {oldBalance} руб.");
-                                Console.WriteLine($"Баланс стал: {acc.Balance} руб.");
+                                Console.WriteLine($"Баланс стал: {account.Balance} руб.");
                             }
                             catch (Exception ex)
                             {
@@ -49,16 +55,16 @@ namespace C_1SecondTryHomeWork
                         Console.Write("Введите сумму снятия: ");
                         if (decimal.TryParse(Console.ReadLine(), out decimal withdrawAmount))
                         {
-                            decimal oldBalance = acc.Balance;
+                            decimal oldBalance = account.Balance;
 
-                            if (!acc.Withdraw(withdrawAmount, out string error))
+                            if (!account.Withdraw(withdrawAmount, out string error))
                             {
                                 Console.WriteLine("Ошибка: " + error);
                             }
                             else
                             {
                                 Console.WriteLine($"Баланс был: {oldBalance} руб.");
-                                Console.WriteLine($"Баланс стал: {acc.Balance} руб.");
+                                Console.WriteLine($"Баланс стал: {account.Balance} руб.");
                             }
                         }
                         else
@@ -68,7 +74,7 @@ namespace C_1SecondTryHomeWork
                         break;
 
                     case "3":
-                        var info = acc.GetInfo();
+                        var info = account.GetInfo();
                         Console.WriteLine("Информация о счёте:");
                         Console.WriteLine($"Номер: {info.accountNumber}");
                         Console.WriteLine($"Владелец: {info.ownerName}");
