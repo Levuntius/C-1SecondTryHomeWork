@@ -86,7 +86,6 @@ namespace C_1SecondTryHomeWork
             return true;
         }
 
-        // Возвращаем только данные — без форматирования
         public (string accountNumber, string ownerName, decimal balance) GetInfo()
         {
             return (_accountNumber, _ownerName, _balance);

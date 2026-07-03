@@ -9,13 +9,12 @@ namespace C_1SecondTryHomeWork
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             BankAccount account = new BankAccount("123456789012", "Лев Гладышев", 5000);
+            var info = account.GetInfo();
             Console.WriteLine("Информация о счёте");
             Console.WriteLine($"Номер: {info.accountNumber}");
             Console.WriteLine($"Владелец: {info.ownerName}");
             Console.WriteLine($"Баланс: {info.balance} грн");
             Console.WriteLine();
-            var info = account.GetInfo();
-
 
             while (true)
             {
