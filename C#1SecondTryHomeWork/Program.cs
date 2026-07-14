@@ -42,7 +42,7 @@ namespace C_1SecondTryHomeWork
                         }
                         else
                         {
-                            Console.WriteLine("Ошибка: Введите корректное число.");
+                            Console.WriteLine("Ошибка: Введите корректное число");
                         }
 
                         break;
@@ -53,7 +53,7 @@ namespace C_1SecondTryHomeWork
                         break;
 
                     case "4":
-                        Console.WriteLine($"Выделено памяти под {myList.Capacity} элементов.");
+                        Console.WriteLine($"Выделено памяти под {myList.Capacity} элементов");
                         break;
 
                     case "5":
@@ -67,7 +67,7 @@ namespace C_1SecondTryHomeWork
                             {
                                 if (newSize < myList.Count)
                                 {
-                                    Console.WriteLine($"Ошибка. Новый размер ({newSize}) меньше количества элементов ({myList.Count}).");
+                                    Console.WriteLine($"Ошибка. Новый размер ({newSize}) меньше количества элементов ({myList.Count})");
                                 }
                                 else
                                 {
@@ -77,7 +77,7 @@ namespace C_1SecondTryHomeWork
                             }
                             else
                             {
-                                Console.WriteLine("Ошибка. Введите корректное число.");
+                                Console.WriteLine("Ошибка. Введите корректное число");
                             }
                         }
 
@@ -88,7 +88,7 @@ namespace C_1SecondTryHomeWork
                         break;
 
                     default:
-                        Console.WriteLine("Неверный ввод. Выберите пункт от 0 до 5.");
+                        Console.WriteLine("Неверный ввод. Выберите пункт от 0 до 5");
                         break;
                 }
             }
