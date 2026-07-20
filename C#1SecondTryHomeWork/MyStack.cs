@@ -32,7 +32,7 @@
         {
             if (count == 0)
             {
-                throw new InvalidOperationException("Стек пуст");
+                throw new InvalidOperationException;
                 return 0;
             }
 
@@ -47,7 +47,7 @@
         {
             if (count == 0)
             {
-                throw new InvalidOperationException("Стек пуст");
+                throw new InvalidOperationException);
                 return 0;
             }
 
