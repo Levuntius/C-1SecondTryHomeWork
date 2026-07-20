@@ -47,7 +47,7 @@
         {
             if (count == 0)
             {
-                throw new InvalidOperationException("Стек пуст!");
+                throw new InvalidOperationException("Стек пуст");
                 return 0;
             }
 
