@@ -26,8 +26,6 @@ namespace C_1SecondTryHomeWork
 
             Console.WriteLine("После очистки Count = " + stack.GetCount());
 
-            Console.WriteLine("Pop: " + stack.Pop());
-
             Console.ReadLine();
 
 
