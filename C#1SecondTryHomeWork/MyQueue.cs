@@ -6,7 +6,7 @@
         private int head;
         private int tail;
         private int count;
-        
+
         public MyQueue()
         {
             items = new int[5];
@@ -17,31 +17,22 @@
 
         public void Enqueue(int value)
         {
-            if (tail == items.Length)
-            {
-                int[] newArr = new int[items.Length * 2 + 1];
-                for (int i = 0; i < items.Length; i++)
-                {
-                    newArr[i] = items[i];
-                }
-                items = newArr;
-            }
+            if (count == items.Length)
+                Resize();
 
             items[tail] = value;
-            tail++;
+            tail = (tail + 1) % items.Length;
             count++;
         }
 
         public int Dequeue()
         {
             if (count == 0)
-            {
                 throw new InvalidOperationException("Очередь пустая");
-            }
 
             int val = items[head];
             items[head] = 0;
-            head++;
+            head = (head + 1) % items.Length;
             count--;
 
             return val;
@@ -50,9 +41,7 @@
         public int Peek()
         {
             if (count == 0)
-            {
                 throw new InvalidOperationException("Очередь пустая");
-            }
 
             return items[head];
         }
@@ -65,9 +54,20 @@
             count = 0;
         }
 
-        public int GetCount()
+        public int GetCount() => count;
+
+        private void Resize()
         {
-            return count;
+            int[] newArr = new int[items.Length * 2 + 1];
+
+            for (int i = 0; i < count; i++)
+            {
+                newArr[i] = items[(head + i) % items.Length];
+            }
+
+            items = newArr;
+            head = 0;
+            tail = count;
         }
     }
 }
