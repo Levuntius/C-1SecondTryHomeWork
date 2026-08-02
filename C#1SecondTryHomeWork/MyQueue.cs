@@ -3,16 +3,17 @@
     public class MyQueue
     {
         private int[] items;
-        private int head;
-        private int tail;
-        private int count;
+        private int _head;
+        private int _tail;
+        private int _count;
+        internal int startItems = 5;    
 
         public MyQueue()
         {
-            items = new int[5];
-            head = 0;
-            tail = 0;
-            count = 0;
+            items = new int[startItems];
+            _head = 0;
+            _tail = 0;
+            _count = 0;
         }
 
         public void Enqueue(int value)
@@ -20,9 +21,9 @@
             if (count == items.Length)
                 Resize();
 
-            items[tail] = value;
-            tail = (tail + 1) % items.Length;
-            count++;
+            items[_tail] = value;
+            _tail = (_tail + 1) % items.Length;
+            _count++;
         }
 
         public int Dequeue()
@@ -30,44 +31,44 @@
             if (count == 0)
                 throw new InvalidOperationException("Очередь пустая");
 
-            int val = items[head];
-            items[head] = 0;
-            head = (head + 1) % items.Length;
-            count--;
+            int val = items[_head];
+            items[_head] = 0;
+            _head = (_head + 1) % items.Length;
+            _count--;
 
             return val;
         }
 
         public int Peek()
         {
-            if (count == 0)
+            if (_count == 0)
                 throw new InvalidOperationException("Очередь пустая");
 
-            return items[head];
+            return items[_head];
         }
 
         public void Clear()
         {
-            items = new int[5];
-            head = 0;
-            tail = 0;
-            count = 0;
+            items = new int[startItems];
+            _head = 0;
+            _tail = 0;
+            _count = 0;
         }
 
-        public int GetCount() => count;
+        public int GetCount() => _count;
 
         private void Resize()
         {
             int[] newArr = new int[items.Length * 2 + 1];
 
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < _count; i++)
             {
-                newArr[i] = items[(head + i) % items.Length];
+                newArr[i] = items[(_head + i) % items.Length];
             }
 
             items = newArr;
-            head = 0;
-            tail = count;
+            _head = 0;
+            _tail = _count;
         }
     }
 }
