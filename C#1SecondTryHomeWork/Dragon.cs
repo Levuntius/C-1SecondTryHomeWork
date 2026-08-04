@@ -2,7 +2,7 @@
 {
     class Dragon : Enemy
     {
-        public override int AttackDamage { get; } = 70;
+        public override int AttackDamage {get;} = 70;
 
         public Dragon(string name) : base(name, 100) { }
 

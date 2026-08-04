@@ -2,33 +2,14 @@
 {
     class Enemy
     {
-        private string _name;
-        private int _health;
-
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-
-        public int Health
-        {
-            get { return _health; }
-            set
-            {
-                if (value < 0)
-                    _health = 0;
-                else
-                    _health = value;
-            }
-        }
-
-        public virtual int AttackDamage { get; } = 50;
+        public string Name {get; set;}
+        public int Health {get; set;}
+        public virtual int AttackDamage {get;} = 50;
 
         public Enemy(string name, int health)
         {
-            _name = name;
-            _health = health;
+            Name = name;
+            Health = health;
         }
 
         public virtual void Attack(Enemy target)
@@ -52,4 +33,3 @@
         }
     }
 }
-

@@ -1,4 +1,6 @@
 ﻿namespace C_1SecondTryHomeWork
+using System;
+{
 {
     internal class Program
     {
