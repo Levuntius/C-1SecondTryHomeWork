@@ -1,7 +1,7 @@
-﻿namespace C_1SecondTryHomeWork
+﻿namespace C_1SecondTryHomeWork;
 using System;
-{
-{
+
+
     internal class Program
     {
         static void Main(string[] args)
@@ -55,4 +55,3 @@ using System;
 
         }
     }
-}
