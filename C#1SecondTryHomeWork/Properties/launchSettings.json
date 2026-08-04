@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\levgl\\source\\repos\\Levuntius\\C-1SecondTryHomeWork\\C#1SecondTryHomeWork\\bin\\Debug\\net8.0\\C#1SecondTryHomeWork.exe"
+    }
+  }
+}
