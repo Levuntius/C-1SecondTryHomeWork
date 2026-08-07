@@ -1,4 +1,4 @@
-﻿namespace C_1SecondTryHomeWork.Properties.Enemy_types
+﻿namespace C_1SecondTryHomeWork.Enemy_types
 {
     class Zombie : Enemy
     {
@@ -11,6 +11,10 @@
 
             Health += 10;
             Console.WriteLine($"{Name} регенерирует 10 здоровья. Теперь у него {Health} HP.");
+            if (Health > MaxHealth)
+            {
+                Health = MaxHealth;
+            }
         }
     }
 }

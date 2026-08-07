@@ -1,4 +1,4 @@
-﻿namespace C_1SecondTryHomeWork.Properties.Enemy_types
+﻿namespace C_1SecondTryHomeWork.Enemy_types
 {
     class Skeleton : Enemy
     {

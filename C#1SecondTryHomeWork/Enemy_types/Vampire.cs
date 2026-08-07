@@ -1,4 +1,4 @@
-﻿namespace C_1SecondTryHomeWork.Properties.Enemy_types
+﻿namespace C_1SecondTryHomeWork.Enemy_types
 {
     class Vampire : Enemy
     {
@@ -11,6 +11,10 @@
 
             int heal = AttackDamage / 2;
             Health += heal;
+            if (Health > MaxHealth)
+            {
+                Health = MaxHealth;
+            }
 
             Console.WriteLine($"{Name} восстанавливает {heal} здоровья. Теперь у него {Health} HP.");
         }

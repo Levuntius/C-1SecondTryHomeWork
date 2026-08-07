@@ -1,4 +1,4 @@
-﻿namespace C_1SecondTryHomeWork.Properties.Enemy_types
+﻿namespace C_1SecondTryHomeWork.Enemy_types
 {
     class Werewolf : Enemy
     {
@@ -8,7 +8,7 @@
         {
             int damage = AttackDamage;
 
-            if (Health < 40)
+            if (Health < MaxHealth / 2)
             {
                 damage = 60;
                 Console.WriteLine($"{Name} впадает в ярость!");
