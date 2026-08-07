@@ -1,8 +1,8 @@
-﻿namespace C_1SecondTryHomeWork
+﻿namespace C_1SecondTryHomeWork.Properties.Enemy_types
 {
     class Orc : Enemy
     {
-        public Orc(string name) : base(name, 100) { }
+        public Orc(string name) : base(name, 100, 100) { }
 
         public override void Attack(Enemy target)
         {

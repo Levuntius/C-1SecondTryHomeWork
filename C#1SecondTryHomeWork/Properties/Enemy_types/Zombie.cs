@@ -1,8 +1,8 @@
-﻿namespace C_1SecondTryHomeWork
+﻿namespace C_1SecondTryHomeWork.Properties.Enemy_types
 {
     class Zombie : Enemy
     {
-        public Zombie(string name) : base(name, 120) { }
+        public Zombie(string name) : base(name, 120, 120) { }
 
         public override void Attack(Enemy target)
         {

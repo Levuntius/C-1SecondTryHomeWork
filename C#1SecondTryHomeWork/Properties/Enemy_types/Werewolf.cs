@@ -1,8 +1,8 @@
-﻿namespace C_1SecondTryHomeWork
+﻿namespace C_1SecondTryHomeWork.Properties.Enemy_types
 {
     class Werewolf : Enemy
     {
-        public Werewolf(string name) : base(name, 80) { }
+        public Werewolf(string name) : base(name, 80, 80) { }
 
         public override void Attack(Enemy target)
         {

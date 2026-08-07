@@ -2,14 +2,16 @@
 {
     class Enemy
     {
-        public string Name {get; set;}
-        public int Health {get; set;}
+        public string Name {get; protected init;}
+        public int Health {get; protected set;}
+        public int MaxHealth {get; protected init;}
         public virtual int AttackDamage {get;} = 50;
 
-        public Enemy(string name, int health)
+        public Enemy(string name, int health, int maxHealth)
         {
             Name = name;
             Health = health;
+            maxHealth = health;
         }
 
         public virtual void Attack(Enemy target)

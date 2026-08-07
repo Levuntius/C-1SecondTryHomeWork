@@ -1,10 +1,12 @@
-﻿namespace C_1SecondTryHomeWork
+﻿namespace C_1SecondTryHomeWork.Properties.Enemy_types
 {
     class Dragon : Enemy
     {
         public override int AttackDamage {get;} = 70;
 
-        public Dragon(string name) : base(name, 100) { }
+        public Dragon(string name) : base(name, 100, 100) { }
+
+        public int maxHealth = 
 
         public override void Attack(Enemy target)
         {

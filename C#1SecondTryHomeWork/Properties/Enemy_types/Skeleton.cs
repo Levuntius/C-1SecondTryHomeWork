@@ -1,8 +1,8 @@
-﻿namespace C_1SecondTryHomeWork
+﻿namespace C_1SecondTryHomeWork.Properties.Enemy_types
 {
     class Skeleton : Enemy
     {
-        public Skeleton(string name) : base(name, 50) { }
+        public Skeleton(string name) : base(name, 50, 50) { }
 
         public override void Attack(Enemy target)
         {
