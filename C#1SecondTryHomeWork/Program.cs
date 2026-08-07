@@ -34,6 +34,9 @@
             Creeper creeper1 = new Creeper("Крипер1");
             Creeper creeper2 = new Creeper("Крипер2");
 
+            Hedgehog hedgehog1 = new Hedgehog("Ёж1");
+            Hedgehog hedgehog2 = new Hedgehog("Ёж2");
+
             // Массив всех монстров
             Enemy[] monsters =
             {
@@ -43,7 +46,8 @@
                 wolf1, wolf2,
                 zombie1, zombie2,
                 vampire1, vampire2,
-                creeper1, creeper2
+                creeper1, creeper2,
+                hedgehog1, hedgehog2
             };
 
             Random rnd = new Random();
@@ -69,9 +73,16 @@
                     Console.WriteLine($"(Downcast) {v.Name} — Вампир");
                 else if (attacker is Creeper c)
                     Console.WriteLine($"(Downcast) {c.Name} — Крипер");
+                else if (attacker is Hedgehog h)
+                    Console.WriteLine($"(Downcast) {h.Name} — Ёж-шипастик");
 
-                // выбираем случайного монстра
-                Enemy target = monsters[rnd.Next(monsters.Length)];
+                // Выбираем случайного монстра, кроме самого себя
+                int randomIndex = rnd.Next(monsters.Length - 1);
+
+                if (randomIndex >= i)
+                    randomIndex++;
+
+                Enemy target = monsters[randomIndex];
 
                 attacker.Attack(target);
 
