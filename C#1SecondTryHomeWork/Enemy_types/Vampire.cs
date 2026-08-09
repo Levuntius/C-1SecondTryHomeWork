@@ -1,22 +1,16 @@
 ﻿namespace C_1SecondTryHomeWork.Enemy_types
 {
-    class Vampire : Enemy
+    public class Vampire : Enemy
     {
-        public Vampire(string name) : base(name, 90, 90) { }
+        public Vampire(string name, int health, int? maxHealth = null) : base(name, health, maxHealth) { }
 
         public override void Attack(Enemy target)
         {
             Console.WriteLine($"{Name} высасывает кровь у {target.Name} и наносит {AttackDamage} урона!");
-            target.TakeDamage(AttackDamage);
+            target.DealDamage(AttackDamage);
 
             int heal = AttackDamage / 2;
-            Health += heal;
-            if (Health > MaxHealth)
-            {
-                Health = MaxHealth;
-            }
-
-            Console.WriteLine($"{Name} восстанавливает {heal} здоровья. Теперь у него {Health} HP.");
+            Heal(heal);
         }
     }
 }

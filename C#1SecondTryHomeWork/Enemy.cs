@@ -1,37 +1,69 @@
 ﻿namespace C_1SecondTryHomeWork
 {
-    class Enemy
+    public abstract class Enemy
     {
-        public string Name {get; protected init;}
-        public int Health {get; protected set;}
-        public int MaxHealth {get; protected init;}
-        public virtual int AttackDamage {get;} = 50;
+        protected const int BaseAttackDamage = 50;
 
-        public Enemy(string name, int health, int maxHealth)
+        public string Name {get; private init;}
+        public int AttackDamage {get; protected set;} = BaseAttackDamage;
+        public int Health {get; private set;}
+        public int MaxHealth {get; private init;}
+
+        public bool IsDead => Health <= 0;
+
+        public Enemy(string name, int health, int? maxHealth = null)
         {
             Name = name;
             Health = health;
-            maxHealth = health;
+
+            if (maxHealth != null)
+            {
+                if (maxHealth < health)
+                    throw new Exception("MaxHealth cannot be less than Health");
+
+                MaxHealth = (int)maxHealth;
+            }
+            else
+            {
+                MaxHealth = health;
+            }
+        }
+
+        // Универсальный метод изменения HP
+        public void ChangeHP(int amount)
+        {
+            Health += amount;
+
+            if (Health > MaxHealth)
+                Health = MaxHealth;
+
+            if (Health < 0)
+                Health = 0;
+        }
+
+        // Получение урона
+        public virtual void DealDamage(int amount)
+        {
+            ChangeHP(-amount);
+
+            Console.WriteLine($"{Name} получает {amount} урона. HP: {Health}/{MaxHealth}");
+        }
+
+        // Лечение
+        public virtual void Heal(int amount)
+        {
+            ChangeHP(amount);
+
+            Console.WriteLine($"{Name} лечится на {amount}. HP: {Health}/{MaxHealth}");
         }
 
         public virtual void Attack(Enemy target)
         {
-            Console.WriteLine($"{Name} делает обычный удар по {target.Name} и наносит {AttackDamage} урона!");
-            target.TakeDamage(AttackDamage);
-        }
+            if (target == null)
+                throw new NullReferenceException("target is null");
 
-        public void TakeDamage(int damage)
-        {
-            Health -= damage;
-
-            if (Health > 0)
-            {
-                Console.WriteLine($"{Name} ещё жив. Осталось здоровья: {Health}");
-            }
-            else
-            {
-                Console.WriteLine($"{Name} погиб!");
-            }
+            Console.WriteLine($"{Name} атакует {target.Name} и наносит {AttackDamage} урона!");
+            target.DealDamage(AttackDamage);
         }
     }
 }

@@ -2,88 +2,56 @@
 {
     using C_1SecondTryHomeWork.Enemy_types;
     using System;
+    using System.Collections.Generic;
 
-    internal class Program
+namespace LevLesson
     {
-        static void Main(string[] args)
+        internal class Program
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.InputEncoding = System.Text.Encoding.UTF8;
-
-            Console.WriteLine("Бой начинается\n");
-
-            // Создание монстров
-            Orc orc1 = new Orc("Орк1");
-            Orc orc2 = new Orc("Орк2");
-
-            Dragon dragon1 = new Dragon("Дракон1");
-            Dragon dragon2 = new Dragon("Дракон2");
-
-            Skeleton skeleton1 = new Skeleton("Скелет1");
-            Skeleton skeleton2 = new Skeleton("Скелет2");
-
-            Werewolf wolf1 = new Werewolf("Оборотень1");
-            Werewolf wolf2 = new Werewolf("Оборотень2");
-
-            Zombie zombie1 = new Zombie("Зомби1");
-            Zombie zombie2 = new Zombie("Зомби2");
-
-            Vampire vampire1 = new Vampire("Вампир1");
-            Vampire vampire2 = new Vampire("Вампир2");
-
-            Creeper creeper1 = new Creeper("Крипер1");
-            Creeper creeper2 = new Creeper("Крипер2");
-
-            // Массив всех монстров
-            Enemy[] monsters =
+            static void Main(string[] args)
             {
-                orc1, orc2,
-                dragon1, dragon2,
-                skeleton1, skeleton2,
-                wolf1, wolf2,
-                zombie1, zombie2,
-                vampire1, vampire2,
-                creeper1, creeper2,
-            };
+                int monsterAmount = 10;
+                int fightsAmount = 2;
 
-            Random rnd = new Random();
+                for (int rep = 0; rep < fightsAmount; rep++)
+                {
+                    Console.WriteLine($"\n=== Бой #{rep + 1} начинается ===\n");
 
-            Console.WriteLine("\n--- Цикл атак начинается ---\n");
+                    List<Enemy> monsters = new List<Enemy>();
 
-            for (int i = 0; i < monsters.Length; i++)
-            {
-                Enemy attacker = monsters[i];
+                    // monsterSpawn
+                    for (int i = 0; i < monsterAmount; i++)
+                        monsters.Add(MonsterSpawner.CreateRandomMonster(i));
 
-                // DOWNCAST
-                if (attacker is Dragon d)
-                    Console.WriteLine($"(Downcast) {d.Name} — Дракон");
-                else if (attacker is Orc o)
-                    Console.WriteLine($"(Downcast) {o.Name} — Орк");
-                else if (attacker is Skeleton s)
-                    Console.WriteLine($"(Downcast) {s.Name} — Скелет");
-                else if (attacker is Werewolf w)
-                    Console.WriteLine($"(Downcast) {w.Name} — Оборотень");
-                else if (attacker is Zombie z)
-                    Console.WriteLine($"(Downcast) {z.Name} — Зомби");
-                else if (attacker is Vampire v)
-                    Console.WriteLine($"(Downcast) {v.Name} — Вампир");
-                else if (attacker is Creeper c)
-                    Console.WriteLine($"(Downcast) {c.Name} — Крипер");
+                    Random rnd = new Random();
 
-                // Выбираем случайного монстра, кроме самого себя
-                int randomIndex = rnd.Next(monsters.Length - 1);
+                    // fight
+                    while (monsters.Count > 1)
+                    {
+                        for (int i = 0; i < monsters.Count; i++)
+                        {
+                            Enemy attacker = monsters[i];
 
-                if (randomIndex >= i)
-                    randomIndex++;
+                            int randomIndex = rnd.Next(monsters.Count - 1);
+                            if (randomIndex >= i)
+                                randomIndex++;
 
-                Enemy target = monsters[randomIndex];
+                            Enemy target = monsters[randomIndex];
 
-                attacker.Attack(target);
+                            attacker.Attack(target);
 
-                Console.WriteLine();
+                            // удаление мёртвых
+                            monsters.RemoveAll(m => m.IsDead);
+
+                            if (monsters.Count <= 1)
+                                break;
+                        }
+                    }
+
+                    Console.WriteLine($"\n=== Победитель: {monsters[0].Name} ===\n");
+                }
             }
-
-            Console.WriteLine("Бой завершён");
         }
     }
+
 }

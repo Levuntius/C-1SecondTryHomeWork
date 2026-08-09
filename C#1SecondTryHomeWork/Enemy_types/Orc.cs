@@ -1,14 +1,13 @@
 ﻿namespace C_1SecondTryHomeWork.Enemy_types
 {
-    class Orc : Enemy
+    public class Orc : Enemy
     {
-        public override int AttackDamage { get; } = 60;
-        public Orc(string name) : base(name, 100, 100) { }
+        public Orc(string name, int health = 100, int? maxHealth = null) : base(name, health, maxHealth) { }
 
         public override void Attack(Enemy target)
         {
             Console.WriteLine($"{Name} бьёт огромной дубиной по {target.Name} и наносит {AttackDamage} урона!");
-            target.TakeDamage(AttackDamage);
+            target.DealDamage(AttackDamage);
         }
     }
 }

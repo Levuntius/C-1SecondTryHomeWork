@@ -1,20 +1,15 @@
 ﻿namespace C_1SecondTryHomeWork.Enemy_types
 {
-    class Zombie : Enemy
+    public class Zombie : Enemy
     {
-        public Zombie(string name) : base(name, 120, 120) { }
+        public Zombie(string name, int health, int? maxHealth = null) : base(name, health, maxHealth) { }
 
         public override void Attack(Enemy target)
         {
             Console.WriteLine($"{Name} кусает {target.Name} и наносит {AttackDamage} урона!");
-            target.TakeDamage(AttackDamage);
+            target.DealDamage(AttackDamage);
 
-            Health += 10;
-            Console.WriteLine($"{Name} регенерирует 10 здоровья. Теперь у него {Health} HP.");
-            if (Health > MaxHealth)
-            {
-                Health = MaxHealth;
-            }
+            Heal(10);
         }
     }
 }

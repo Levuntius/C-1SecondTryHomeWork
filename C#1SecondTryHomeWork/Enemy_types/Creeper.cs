@@ -1,21 +1,16 @@
 ﻿namespace C_1SecondTryHomeWork.Enemy_types
 {
-    class Creeper : Enemy
+    public class Creeper : Enemy
     {
-        public override int AttackDamage { get; } = 100;
-
-        public Creeper(string name) : base(name, 100) { }
+        public Creeper(string name, int health, int? maxHealth = null) : base(name, health, maxHealth) { }
 
         public override void Attack(Enemy target)
         {
-            Console.WriteLine($"{Name} взрывается рядом с {target.Name} и наносит {AttackDamage} урона!");
+            Console.WriteLine($"{Name} взрывается рядом с {target.Name} и наносит 100 урона!");
+            target.DealDamage(100);
 
-            // Наносим урон цели
-            target.TakeDamage(AttackDamage);
-
-            // Крипер самоуничтожается
-            Health = 0;
-            Console.WriteLine($"{Name} взорвался и погиб!");
+            ChangeHP(-MaxHealth); // смерть
+            Console.WriteLine($"{Name} погиб от взрыва!");
         }
     }
 }

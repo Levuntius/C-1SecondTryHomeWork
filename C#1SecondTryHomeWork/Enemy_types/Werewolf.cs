@@ -1,21 +1,32 @@
 ﻿namespace C_1SecondTryHomeWork.Enemy_types
 {
-    class Werewolf : Enemy
+    public class Werewolf : Enemy
     {
-        public Werewolf(string name) : base(name, 80, 80) { }
+        private bool _isRage = false;
+
+        public Werewolf(string name, int health = 90, int? maxHealth = null) : base(name, health, maxHealth) { }
 
         public override void Attack(Enemy target)
         {
-            int damage = AttackDamage;
+            Console.WriteLine($"{Name} атакует когтями {target.Name} и наносит {AttackDamage} урона!");
+            target.DealDamage(AttackDamage);
+        }
 
-            if (Health < MaxHealth / 2)
+        public override int TakeDamage(int damage)
+        {
+            // Включение ярости
+            if (!_isRage && Health < MaxHealth / 2)
             {
-                damage = 60;
-                Console.WriteLine($"{Name} впадает в ярость!");
+                _isRage = true;
+
+                // Усиление урона ×1.5
+                AttackDamage = (int)(BaseAttackDamage * 1.5);
+
+                Console.WriteLine($"{Name} впадает в ярость! Урон увеличен до {AttackDamage}");
             }
 
-            Console.WriteLine($"{Name} разрывает когтями {target.Name} и наносит {damage} урона!");
-            target.TakeDamage(damage);
+            DealDamage(damage);
+            return Health;
         }
     }
 }

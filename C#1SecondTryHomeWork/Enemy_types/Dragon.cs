@@ -1,17 +1,16 @@
 ﻿namespace C_1SecondTryHomeWork.Enemy_types
 {
-    class Dragon : Enemy
+    public class Dragon : Enemy
     {
-        public override int AttackDamage {get;} = 70;
-
-        public Dragon(string name) : base(name, 100, 100) { }
-
-        public int maxHealth = 
+        public Dragon(string name, int health = 120, int? maxHealth = null) : base(name, health, maxHealth)
+        {
+            AttackDamage = 70;
+        }
 
         public override void Attack(Enemy target)
         {
             Console.WriteLine($"{Name} дышит огнём на {target.Name} и наносит {AttackDamage} урона!");
-            target.TakeDamage(AttackDamage);
+            target.DealDamage(AttackDamage);
         }
     }
 }
