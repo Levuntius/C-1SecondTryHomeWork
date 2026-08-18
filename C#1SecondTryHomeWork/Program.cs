@@ -20,7 +20,6 @@
             // Переопределение Equals()
             public override bool Equals(object obj)
             {
-                // Проверяем null и тип
                 if (obj is Player other)
                 {
                     return Name == other.Name && Level == other.Level;
@@ -29,7 +28,6 @@
                 return false;
             }
 
-            // Чтобы Equals работал корректно — нужно переопределить GetHashCode()
             public override int GetHashCode()
             {
                 return HashCode.Combine(Name, Level);
