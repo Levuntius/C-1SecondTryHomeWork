@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace C_1SecondTryHomeWork
 {
-    internal class Swordsman
+    public class Swordsman : Creature
     {
+        public Swordsman(string name) : base(name) { }
+
+        public override void Attack()
+        {
+            Console.WriteLine($"{Name} наносит удар мечом!");
+        }
     }
+
 }

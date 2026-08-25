@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace C_1SecondTryHomeWork
 {
-    internal class Screamer
+    public class Screamer : Creature
     {
+        public Screamer(string name) : base(name) { }
+
+        public override void Attack()
+        {
+            Console.WriteLine($"{Name} орёт так громко, что враг оглушён!");
+        }
     }
+
 }

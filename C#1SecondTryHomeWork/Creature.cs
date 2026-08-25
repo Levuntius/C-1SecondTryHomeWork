@@ -6,7 +6,29 @@ using System.Threading.Tasks;
 
 namespace C_1SecondTryHomeWork
 {
-    internal class Creature
+    public class Creature
     {
+        public string Name {get; set;}
+        public string Emotion {get; set;}
+        public string Movement {get; set;}
+
+        public Creature(string name)
+        {
+            Name = name;
+            Emotion = "покерфейс";
+            Movement = "стою";
+        }
+
+        public virtual void Attack()
+        {
+            Console.WriteLine($"{Name} делает обычный удар.");
+        }
+
+        public void ShowState()
+        {
+            Console.WriteLine($"{Name}: эмоция = {Emotion}, движение = {Movement}");
+        }
     }
+
+
 }
