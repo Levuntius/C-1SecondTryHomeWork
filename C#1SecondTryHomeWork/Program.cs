@@ -1,9 +1,12 @@
 ﻿using C_1SecondTryHomeWork;
+using System.Text;
 
 class Program
 {
     static void Main()
     {
+        Console.OutputEncoding = Encoding.UTF8;
+        Console.InputEncoding = Encoding.UTF8;
         var pirate = new Fighter("Пиратский корабль");
 
         var fighter = new Fighter("Истребитель Альфа");
