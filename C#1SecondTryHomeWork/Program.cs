@@ -13,7 +13,7 @@ class Program
         var turret = new DefenseTurret("Турель");
         turret.Enable();
 
-        List<IAttacker> group = new() { fighter, turret };
+        List<IAttacker> group = new() {fighter, turret};
 
         Console.WriteLine("Начало боя");
 
