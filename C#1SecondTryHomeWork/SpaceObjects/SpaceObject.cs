@@ -15,14 +15,26 @@ public abstract class SpaceObject : IDamageable
 
     public void TakeDamage(int amount)
     {
+        Console.WriteLine($"{Name} получает {amount} урона.");
+
         if (Shield > 0)
         {
             int absorbed = Math.Min(Shield, amount);
             Shield -= absorbed;
             amount -= absorbed;
+            Console.WriteLine($" → Щит поглотил {absorbed}, осталось щита: {Shield}");
         }
 
         if (amount > 0)
+        {
             Hull -= amount;
+            Console.WriteLine($" → Корпус получил {amount}, осталось корпуса: {Hull}");
+        }
+
+        if (Hull <= 0)
+        {
+            Console.WriteLine($" !!! {Name} уничтожен!");
+        }
     }
+
 }

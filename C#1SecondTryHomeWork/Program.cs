@@ -19,8 +19,7 @@ class Program
 
         for (int i = 0; i < group.Count; i++)
         {
-            IAttacker attacker = group[i];
-            attacker.Attack(pirate);
+            group[i].Attack(pirate);
 
             if (pirate.Hull <= 0)
             {
@@ -29,6 +28,5 @@ class Program
             }
         }
 
-        Console.WriteLine("=== Бой завершён ===");
+        Console.WriteLine("=== Конец боя ===");
     }
-}
