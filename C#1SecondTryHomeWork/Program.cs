@@ -10,12 +10,12 @@ class Program
         var pirate = new Fighter("Пиратский корабль");
 
         var fighter = new Fighter("Истребитель Альфа");
-        var turret = new DefenseTurret("Турель Т-1");
+        var turret = new DefenseTurret("Турель");
         turret.Enable();
 
         List<IAttacker> group = new() { fighter, turret };
 
-        Console.WriteLine("=== Начало боя ===");
+        Console.WriteLine("Начало боя");
 
         for (int i = 0; i < group.Count; i++)
         {
@@ -28,6 +28,6 @@ class Program
             }
         }
 
-        Console.WriteLine("=== Конец боя ===");
+        Console.WriteLine("Конец боя");
     }
 }
