@@ -15,7 +15,7 @@ class Program
 
         List<IAttacker> group = new() { fighter, turret };
 
-        Console.WriteLine("=== Начало боя ===");
+        Console.WriteLine("Начало боя");
 
         for (int i = 0; i < group.Count; i++)
         {
@@ -28,5 +28,5 @@ class Program
             }
         }
 
-        Console.WriteLine("=== Конец боя ===");
+        Console.WriteLine("Конец боя");
     }

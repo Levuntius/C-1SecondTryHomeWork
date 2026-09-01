@@ -12,8 +12,12 @@ public class DefenseTurret : StationModule, IAttacker
     public void Attack(IDamageable target)
     {
         if (!IsEnabled)
+        {
+            Console.WriteLine($"{Name} не может атаковать модуль выключен.");
             return;
+        }
 
+        Console.WriteLine($"{Name} стреляет и наносит {Damage} урона!");
         target.TakeDamage(Damage);
     }
-}
+

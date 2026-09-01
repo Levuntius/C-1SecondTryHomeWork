@@ -11,6 +11,8 @@ public class Fighter : Ship, IAttacker
 
     public void Attack(IDamageable target)
     {
+        Console.WriteLine($"{Name} атакует и наносит {Damage} урона!");
         target.TakeDamage(Damage);
     }
+
 }
