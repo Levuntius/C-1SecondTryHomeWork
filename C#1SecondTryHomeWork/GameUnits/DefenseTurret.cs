@@ -2,9 +2,9 @@
 
 public class DefenseTurret : StationModule, IAttacker
 {
-    public int Damage {get;}
+    public int Damage { get; }
 
-    public DefenseTurret(string name): base(name, 150, 30, 10)
+    public DefenseTurret(string name) : base(name, 150, 30, 10)
     {
         Damage = 20;
     }
@@ -21,3 +21,4 @@ public class DefenseTurret : StationModule, IAttacker
         target.TakeDamage(Damage);
     }
 
+}
