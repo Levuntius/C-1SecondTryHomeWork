@@ -1,7 +1,7 @@
 ﻿public class MyLinkedList<T>
 {
-    private Node<T> head;   // первый элемент списка
-    private Node<T> tail;   // последний элемент списка
+    private Node<T>? head;   // первый элемент списка
+    private Node<T>? tail;   // последний элемент списка
     private int count;      // количество элементов
 
     // Внутренний класс узла
