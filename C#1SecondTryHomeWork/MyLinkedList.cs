@@ -39,4 +39,6 @@
                 tail = current;
             }
 
-            tail.Next = new
+        }
+    }
+}
