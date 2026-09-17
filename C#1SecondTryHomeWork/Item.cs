@@ -13,7 +13,6 @@ namespace C_1SecondTryHomeWork
 
         public override int GetHashCode()
         {
-            // Плохой хеш — всегда одинаковый
             return 1;
         }
 
