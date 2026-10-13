@@ -1,12 +1,19 @@
 ﻿namespace C_1SecondTryHomeWork
 {
-    internal class Program
+    class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-           
-                
-         
+            var products = new ProductCollection();
+            products.Add("Milk");
+            products.Add("Bread");
+            products.Add("Cheese");
+
+            foreach (var p in products)
+            {
+                Console.WriteLine(p);
+            }
         }
     }
+
 }
