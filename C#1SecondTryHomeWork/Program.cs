@@ -5,6 +5,8 @@ namespace C_1SecondTryHomeWork
 {
     internal class Program
     {
+        Console.OutputEncoding = Encoding.UTF8;
+        Console.InputEncoding = Encoding.UTF8;
         static void Main(string[] args)
         {
             // Создаем список врагов
